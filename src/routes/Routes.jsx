@@ -2,10 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import HomeLayout from "../layouts/HomeLayout";
 import Home from "../pages/Home/Home";
 import AllFoods from "../pages/AllFoods/AllFoods";
-import Gallery from "../pages/Gallery/Gallery";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Gallery from "../pages/Gallery/Gallery";
 
 const router = createBrowserRouter([
     {

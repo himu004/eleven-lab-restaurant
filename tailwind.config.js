@@ -9,8 +9,12 @@ export default {
   ],
   theme: {
     extend: {},
+    daisyui: {
+      themes: ["light", "dark"],
+    },
   },
   plugins: [
     daisyUI
   ],
 }
+
