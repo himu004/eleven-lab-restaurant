@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { createContext, useEffect, useState } from "react";
+import {useEffect, useState } from "react";
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -10,8 +10,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 
-import { auth } from "../firebase/firebase.config";
 import { AuthContext } from "./Context";
+import auth from "../firebase/firebase.config";
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
@@ -73,3 +73,5 @@ const AuthProvider = ({ children }) => {
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
 };
+
+export default AuthProvider;
