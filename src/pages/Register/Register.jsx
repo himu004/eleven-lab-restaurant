@@ -129,10 +129,7 @@ const Register = () => {
           </div>
           <form onSubmit={handleSignUp}>
             <div className="mt-4">
-              <label
-                className="block mb-2 text-sm font-medium text-gray-600"
-               
-              >
+              <label className="block mb-2 text-sm font-medium text-gray-600">
                 Username
               </label>
               <input
@@ -213,25 +210,22 @@ const Register = () => {
                 type="submit"
                 className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
               >
-                Sign Up
+                Register
               </button>
             </div>
           </form>
 
           <div className="flex items-center justify-between mt-4">
-            <span className="w-1/5 border-b md:w-1/4"></span>
-
             <Link
               to="/login"
               className="text-xs text-gray-500 uppercase hover:underline"
             >
-              or sign in
+              Already have an account?{" "}
+              <span className="font-bold text-blue-500">Login</span>
             </Link>
-
-            <span className="w-1/5 border-b md:w-1/4"></span>
           </div>
         </div>
-        <div className="hidden lg:block lg:w-1/2">
+        <div className="hidden lg:block lg:w-1/2 pt-20">
           <Lottie options={defaultOptions} height={400} width={400} />
         </div>
       </div>
