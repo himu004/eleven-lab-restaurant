@@ -12,8 +12,11 @@ import "./style.css";
 // import required modules
 import { Autoplay, Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../providers/Context";
+import { useContext } from "react";
 
 const Banner = () => {
+  const { theme } = useContext(ThemeContext)
   return (
     <div className="hero">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -96,10 +99,10 @@ const Banner = () => {
               delay: 0.2,
               ease: "easeOut",
             }}
-            className="text-4xl font-bold"
+            className={`text-4xl font-bold ${theme === "dark" ? "text-white" : "text-gray-800"}`}
           >
             Welcome to Eleven Lab{" "}
-            <span className="text-success">Restaurant</span>
+            <span className={`${theme === "dark" ? "text-error" : "text-success"}`}>Restaurant</span>
           </motion.h1>
           <motion.p
             initial={{ y: 100, opacity: 0 }}
@@ -109,7 +112,7 @@ const Banner = () => {
               delay: 0.4,
               ease: "easeOut",
             }}
-            className="py-6 text-lg text-justify"
+            className={`py-6 text-lg text-justify text-gray-500 ${theme === "dark" ? "text-white" : "text-gray-500"}`}
           >
             A food-focused site that provides tools and resources to explore,
             plan, and manage meals efficiently. Users can discover diverse
@@ -126,8 +129,8 @@ const Banner = () => {
             }}
           >
             <Link to="/all-foods">
-              <button className="btn btn-neutral px-10 hover:btn-success hover:text-white">
-                Get Started
+              <button className={`btn btn-success px-10 text-white hover:btn-warning hover:text-white ${theme === "dark" ? "hover:btn-error hover:text-white" : ""}`}>
+                Foods We Have
               </button>
             </Link>
           </motion.div>
