@@ -78,9 +78,15 @@ const Navbar = () => {
             <NavLink to="/gallery">Gallery</NavLink>
           </li>
           {!user && (
+            <>
             <li>
               <Link to="/login">Login</Link>
             </li>
+            <div className="divider divider-horizontal m-0"></div>
+            <li>
+              <Link to="/register">Register</Link>
+            </li>
+            </>
           )}
         </ul>
       </div>
@@ -102,9 +108,15 @@ const Navbar = () => {
             <NavLink to="/gallery">Gallery</NavLink>
           </li>
           {!user && (
+            <>
             <li>
               <Link to="/login">Login</Link>
             </li>
+            
+            <li>
+              <Link to="/register">Register</Link>
+            </li>
+            </>
           )}
         </ul>
       </div>

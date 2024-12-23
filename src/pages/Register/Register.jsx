@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../providers/Context";
 import Lottie from "react-lottie";
-import animationData from "../../assets/lottie/register_animation.json";
+import animationData from "../../assets/lottie/food_register.json";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {

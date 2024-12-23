@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import toast from 'react-hot-toast'
 import { AuthContext } from '../../providers/Context'
 import Lottie from "react-lottie";
-import loginAnimationData from "../../assets/lottie/login_animation.json";
+import loginAnimationData from "../../assets/lottie/food_login.json";
 const Login = () => {
   const navigate = useNavigate()
   const location = useLocation()
