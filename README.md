@@ -1,6 +1,6 @@
-# <img width="30px" src="/public/logo.png"/> Eleven Lab Restaurant 
+# <img width="30px" src="/public/logo.jpeg"/> Eleven Lab Restaurant 
 
-# Live Link [ Here ](https://pro-sports.netlify.app/)
+# Live Link [ Here ](https://eleven-lab-restaurant.netlify.app/)
 
 ## Description
 This is a website for a restaurant called Eleven Lab.
@@ -9,3 +9,18 @@ This is a website for a restaurant called Eleven Lab.
 
 
 ## Technologies and Packages Used
+- React
+- React Router
+- TailwindCSS
+- Firebase
+- Framer Motion
+- Axios
+- React Icons
+- TanStack Query
+- SwiperJS
+- Lottie-React
+- React-Hot-Toastify
+- MomentJS
+- React-Datepicker
+- Yet-Another-React-LightBox
+- Date-Fns
