@@ -12,7 +12,7 @@ const TopFoods = ({ theme }) => {
         </p>
       </div>
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
-        <div className="card bg-base-100 w-96 shadow-md">
+        <div className="card bg-base-100 shadow-md">
           <figure>
             <img
               src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"

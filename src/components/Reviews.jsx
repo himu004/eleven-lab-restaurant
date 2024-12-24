@@ -43,7 +43,7 @@ const Reviews = ({ theme }) => {
     ];
 
     return (
-        <section className={`bg-white ${theme === "dark" ? "bg-gray-900" : ""}`}>
+        <section className={`${theme === "dark" ? "bg-gray-900" : "bg-white "}`}>
             <div className="container px-6 py-10 mx-auto">
                 <div className="mt-6 md:flex md:items-center md:justify-between">
                     <div>

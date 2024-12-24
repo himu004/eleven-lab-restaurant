@@ -2,32 +2,30 @@ import React from "react";
 
 const OurChef = ({theme}) => {
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <section className={`${theme === "dark" ? "bg-gray-900" : "bg-white "}`}>
       <div className="container px-6 py-10 mx-auto">
-        <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
+        <h1 className={`text-2xl font-semibold text-center capitalize lg:text-3xl ${theme === "dark" ? "text-white" : "text-gray-700"}`}>
           Our Chefs
         </h1>
 
-        <p className="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt
-          ex placeat modi magni quia error alias, adipisci rem similique, at
-          omnis eligendi optio eos harum.
+        <p className={`max-w-2xl mx-auto my-6 text-center ${theme === "dark" ? "text-white" : "text-gray-700"}`}>
+            Our chefs are the best in the world. They are highly skilled, creative, and passionate about their work. They use only the freshest ingredients to create delicious and healthy meals that will leave you wanting more.
         </p>
 
         <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
-          <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+          <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 ">
             <img
               className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+              src="https://i.pinimg.com/736x/87/cb/ca/87cbca3b19212fa120d706d8c0be593f.jpg"
               alt=""
             />
 
-            <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
+            <h1 className={`mt-4 text-2xl font-semibold capitalize group-hover:text-white ${theme === "dark" ? "text-white" : " text-gray-700"}`}>
               arthur melo
             </h1>
 
-            <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
-              design director
+            <p className="mt-2 text-gray-700 capitalize group-hover:text-gray-300">
+              Head Chef
             </p>
 
             <div className="flex mt-3 -mx-2">
@@ -78,19 +76,19 @@ const OurChef = ({theme}) => {
             </div>
           </div>
 
-          <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+          <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 ">
             <img
               className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-              src="https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+              src="https://i.pinimg.com/736x/1d/99/7f/1d997fe16eacf95102dc15ee2ada8b4c.jpg"
               alt=""
             />
 
-            <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
-              Amelia. Anderson
+            <h1 className={`mt-4 text-2xl font-semibold capitalize group-hover:text-white ${theme === "dark" ? "text-white" : " text-gray-700"}`}>
+              fibonacci verpotti
             </h1>
 
-            <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
-              Lead Developer
+            <p className="mt-2 text-gray-700 capitalize group-hover:text-gray-300">
+              Assistant Head Chef
             </p>
 
             <div className="flex mt-3 -mx-2">
@@ -140,20 +138,19 @@ const OurChef = ({theme}) => {
               </a>
             </div>
           </div>
-
-          <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+          <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 ">
             <img
               className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-              src="https://images.unsplash.com/photo-1488508872907-592763824245?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+              src="https://i.pinimg.com/736x/d9/1e/1c/d91e1c0484ddce488d79f68476a1f3b8.jpg"
               alt=""
             />
 
-            <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
-              Olivia Wathan
+            <h1 className={`mt-4 text-2xl font-semibold capitalize group-hover:text-white ${theme === "dark" ? "text-white" : " text-gray-700"}`}>
+              Fiona Jenkins
             </h1>
 
-            <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
-              Lead designer
+            <p className="mt-2 text-gray-700 capitalize group-hover:text-gray-300">
+              Bakery Chef
             </p>
 
             <div className="flex mt-3 -mx-2">
@@ -203,20 +200,19 @@ const OurChef = ({theme}) => {
               </a>
             </div>
           </div>
-
-          <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+          <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 ">
             <img
               className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-              src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+              src="https://i.pinimg.com/736x/66/00/b1/6600b10cea66879463d52764ee7c16a8.jpg"
               alt=""
             />
 
-            <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
-              John Doe
+            <h1 className={`mt-4 text-2xl font-semibold capitalize group-hover:text-white ${theme === "dark" ? "text-white" : " text-gray-700"}`}>
+              Kate Winslet
             </h1>
 
-            <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
-              Full stack developer
+            <p className="mt-2 text-gray-700 capitalize group-hover:text-gray-300">
+              Executive Chef
             </p>
 
             <div className="flex mt-3 -mx-2">
@@ -266,6 +262,8 @@ const OurChef = ({theme}) => {
               </a>
             </div>
           </div>
+
+          
         </div>
       </div>
     </section>
