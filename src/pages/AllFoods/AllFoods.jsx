@@ -10,6 +10,23 @@ const AllFoods = () => {
   const [foods, setFoods] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+const handleSearch = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    const searchValue = e.target.search.value;
+    setSearchTerm(searchValue);
+    try {
+        const { data } = await axios.get(
+            `https://eleven-lab-retaurant-backend.vercel.app/search?search=${searchValue}`
+        );
+        setFoods(data);
+    } catch (error) {
+        console.error('Search error:', error);
+    } finally {
+        setIsLoading(false);
+    }
+};
+
   useEffect(() => {
     fetchJobData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -38,14 +55,13 @@ const AllFoods = () => {
       <div>
         {/* Search Bar */}
         <div className="flex flex-col md:flex-row justify-center items-center gap-5 ">
-          <form>
+          <form onSubmit={handleSearch}>
             <div className="flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
               <input
                 className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
                 type="text"
                 name="search"
                 placeholder="Search for foods"
-                aria-label="Enter Job Title"
               />
 
               <button className="px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
