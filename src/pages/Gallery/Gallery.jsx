@@ -4,9 +4,9 @@
 
 
 import { useState } from "react";
-import { Lightbox } from "yet-another-react-lightbox";
+import {Lightbox} from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-import allFoods from '../../assets/gellary.png'
+import galleryBG from "../../assets/gellary.png";
 
 const Gallery = () => {
     const galleryImages = [
@@ -20,8 +20,8 @@ const Gallery = () => {
         { id: 8, img: "https://i.pinimg.com/736x/eb/7b/2b/eb7b2b809751f7b3cd6757426914b5ae.jpg", title: "Chocolate Cake", desc: "Rich chocolate layer cake" },
         { id: 9, img: "https://i.pinimg.com/736x/56/fb/3f/56fb3f0a81ab2a5fef185f774365ef82.jpg", title: "Garden Bowl", desc: "Fresh vegetarian bowl" },
         { id: 10, img: "https://i.pinimg.com/736x/92/c0/03/92c0030e944c187f4427e363025e6e53.jpg", title: "BBQ Ribs", desc: "Slow-cooked BBQ pork ribs" },
-        { id: 10, img: "https://i.pinimg.com/736x/9f/9b/59/9f9b5972c477421cd03aa1e75606b5b4.jpg", title: "Rice Platter", desc: "Indian rice platter, continental taste" },
-        { id: 10, img: "https://i.pinimg.com/736x/26/99/12/269912a43432af5c9cf603093bb984c9.jpg", title: "Fried Chicken", desc: "KFC Styled Mouth Weathering Fried Chicken" },
+        { id: 11, img: "https://i.pinimg.com/736x/9f/9b/59/9f9b5972c477421cd03aa1e75606b5b4.jpg", title: "Rice Platter", desc: "Indian rice platter, continental taste" },
+        { id: 12, img: "https://i.pinimg.com/736x/26/99/12/269912a43432af5c9cf603093bb984c9.jpg", title: "Fried Chicken", desc: "KFC Styled Mouth Weathering Fried Chicken" },
     ];
     const [isOpen, setIsOpen] = useState(false);
     const [photoIndex, setPhotoIndex] = useState(0);
@@ -29,11 +29,11 @@ const Gallery = () => {
     return (
         <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">
             <div
-                style={{ backgroundImage: `url(${allFoods})` }}
+                style={{ backgroundImage: `url(${galleryBG})` }}
                 className="bg-center bg-cover object-cover text-center mb-8 h-32 rounded-xl"
             >
                 <div className="h-full flex flex-col items-center justify-center bg-black bg-opacity-20 rounded-xl">
-                    <h2 className="text-4xl font-bold text-red-500">Gallery</h2>
+                    <h2 className="text-4xl font-bold text-green-500">Gallery</h2>
                     <div className="w-24 h-1 mx-auto bg-red-500 mt-3"></div>
                 </div>
             </div>
@@ -60,15 +60,19 @@ const Gallery = () => {
                     </div>
                 ))}
             </div>
-
-            <Lightbox
-                open={isOpen}
-                close={() => setIsOpen(false)}
-                slides={galleryImages.map(item => ({ src: item.img }))}
-                index={photoIndex}
-            />
+            {isOpen && (
+                <Lightbox
+                    open={isOpen}
+                    close={() => setIsOpen(false)}
+                    slides={galleryImages.map(item => ({ src: item.img }))}
+                    index={photoIndex}
+                />
+            )}
         </div>
+   
     );
 };
+
+
 
 export default Gallery;

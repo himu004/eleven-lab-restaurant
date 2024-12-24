@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 const Banner = ({theme}) => {
   
   return (
-    <div className="hero">
+    <div className="hero md:p-0">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="flex-1">
           <div className="md:w-full md:max-w-2xl max-w-xs h-[500px] max-h-[400px] rounded-xl overflow-hidden">
