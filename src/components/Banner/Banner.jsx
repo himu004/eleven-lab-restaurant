@@ -12,11 +12,9 @@ import "./style.css";
 // import required modules
 import { Autoplay, Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
-import { ThemeContext } from "../../providers/Context";
-import { useContext } from "react";
 
-const Banner = () => {
-  const { theme } = useContext(ThemeContext)
+const Banner = ({theme}) => {
+  
   return (
     <div className="hero">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -129,7 +127,7 @@ const Banner = () => {
             }}
           >
             <Link to="/all-foods">
-              <button className={`btn btn-success px-10 text-white hover:btn-warning hover:text-white ${theme === "dark" ? "hover:btn-error hover:text-white" : ""}`}>
+              <button className={`btn px-10 text-white ${theme === "dark" ? "btn-error hover:btn-success hover:text-white" : "btn-success  hover:btn-error hover:text-white"}`}>
                 Foods We Have
               </button>
             </Link>
