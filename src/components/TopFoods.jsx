@@ -24,12 +24,15 @@ const TopFoods = ({ theme }) => {
               Foods Name
             </h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <div className="badge badge-outline">Fashion</div>
-              <div className="badge badge-outline">Products</div>
+            <div className="card-actions">
+              <div className="badge badge-outline badge-error">Sold: 100</div>
             </div>
           </div>
+          <Link to="/food-details" className="m-5" >
+            <button className="btn btn-neutral btn-outline w-full ">Details</button>
+        </Link>
         </div>
+        
       </div>
       <Link to="/all-foods" className="mt-10 flex justify-center py-5" >
         <button className={`btn px-10 text-white ${theme === "dark" ? "btn-error hover:btn-success hover:text-white" : "btn-success  hover:btn-error hover:text-white"}`}>All Foods</button>
