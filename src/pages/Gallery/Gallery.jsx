@@ -3,10 +3,11 @@
 
 
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {Lightbox} from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import galleryBG from "../../assets/gellary.png";
+import { AuthContext } from "../../providers/Context";
 
 const Gallery = () => {
     const galleryImages = [
@@ -25,6 +26,8 @@ const Gallery = () => {
     ];
     const [isOpen, setIsOpen] = useState(false);
     const [photoIndex, setPhotoIndex] = useState(0);
+
+    const {user} = useContext(AuthContext)
 
     return (
         <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">
@@ -54,6 +57,9 @@ const Gallery = () => {
                             className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-white">
+                            <p>Hello,</p>
+                            <h1 className="text-2xl font-bold">{user?.displayName}</h1>
+                            <p>We Present You</p>
                             <h3 className="text-xl font-bold">{item.title}</h3>
                             <p className="text-sm mt-2">{item.desc}</p>
                         </div>

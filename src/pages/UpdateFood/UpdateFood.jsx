@@ -31,6 +31,7 @@ const UpdateFood = () => {
         purchase_count: 0,
     };
 
+
     try {
         await axios.put(`https://eleven-lab-retaurant-backend.vercel.app/update-food/${id}`, foodData);
         form.reset();
