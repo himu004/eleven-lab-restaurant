@@ -34,7 +34,7 @@ const UpdateFood = () => {
     try {
         await axios.put(`https://eleven-lab-retaurant-backend.vercel.app/update-food/${id}`, foodData);
         form.reset();
-        toast.success("You have Food Added Successfully");
+        toast.success("You have Updated Food Successfully");
         navigate("/my-foods");
       } catch (err) {
         toast.error(err.message);

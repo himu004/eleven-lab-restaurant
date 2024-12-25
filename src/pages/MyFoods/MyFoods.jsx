@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../providers/Context";
+import { AuthContext, ThemeContext } from "../../providers/Context";
 import axios from "axios";
 import allFoods from "../../assets/allFoods.png";
 import { Link } from "react-router-dom";
@@ -7,6 +7,8 @@ import LoadingSpinner from "../../components/LoadingSpinner";
 
 const MyFoods = () => {
   const { user } = useContext(AuthContext);
+
+  const {theme} = useContext(ThemeContext);
 
   const [myFoods, setMyFoods] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -22,6 +24,7 @@ const MyFoods = () => {
     setMyFoods(data);
     setIsLoading(false);
   };
+  
   return (
     <div>
       <section className="container px-4 mx-auto pt-12">
@@ -35,14 +38,14 @@ const MyFoods = () => {
           </div>
         </div>
         <div className="flex items-center gap-x-3">
-          <h2 className="text-lg font-medium text-gray-800 ">My Added Foods</h2>
+          <h2 className={`text-lg font-medium text-gray-800 ${theme === 'dark' && 'text-white'}`}>My Added Foods</h2>
 
           <span className="px-3 py-1 text-xs  badge badge-outline badge-success badge-md">
             {myFoods.length} Food
           </span>
         </div>
 
-        <div className="flex flex-col mt-6">
+        <div className="flex flex-col my-8">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
               <div className="overflow-hidden border border-gray-200  md:rounded-lg">
@@ -50,7 +53,7 @@ const MyFoods = () => {
                   <LoadingSpinner />
                 ) : (
                   <table className="min-w-full divide-y divide-gray-200">
-                    <thead className="bg-gray-50">
+                    <thead className={`${theme === 'dark' && 'bg-gray-800'}`}>
                       <tr>
                         <th
                           scope="col"
@@ -68,6 +71,7 @@ const MyFoods = () => {
                             <span>Title</span>
                           </div>
                         </th>
+                        
 
                         <th
                           scope="col"
@@ -76,6 +80,14 @@ const MyFoods = () => {
                           <button className="flex items-center gap-x-2">
                             <span>Price</span>
                           </button>
+                        </th>
+                        <th
+                          scope="col"
+                          className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500"
+                        >
+                          <div className="flex items-center gap-x-3">
+                            <span>Quantity</span>
+                          </div>
                         </th>
 
                         <th
@@ -96,7 +108,7 @@ const MyFoods = () => {
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="bg-white divide-y divide-gray-200 ">
+                    <tbody className={`divide-y divide-gray-200 ${theme === 'dark' && 'bg-gray-800'}`}>
                       {myFoods.map((food) => (
                         <tr key={food._id}>
                           <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
@@ -111,7 +123,10 @@ const MyFoods = () => {
                           </td>
 
                           <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
-                            $ {food.price}
+                            ${food.price}
+                          </td>
+                          <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
+                            {food.quantity}
                           </td>
 
                           <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
@@ -119,7 +134,7 @@ const MyFoods = () => {
                           </td>
                           <td className="px-4 py-4 text-sm whitespace-nowrap">
                             <div className="flex items-center gap-x-2">
-                              <p>{food.origin}</p>
+                              <p className="text-gray-500">{food.origin}</p>
                             </div>
                           </td>
                           <td className="px-4 py-4 text-sm whitespace-nowrap">
