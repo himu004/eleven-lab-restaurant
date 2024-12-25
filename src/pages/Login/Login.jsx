@@ -18,7 +18,7 @@ const Login = () => {
       await signInWithGoogle();
 
       toast.success("Signin Successful");
-      navigate(from, { replace: true });
+      navigate('/');
     } catch (err) {
       console.log(err);
       toast.error(err?.message);

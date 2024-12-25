@@ -16,6 +16,8 @@ const FoodPurchase = () => {
 
   const { id } = useParams();
 
+  const { theme } = useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const handlePurchaseFood = async (e) => {
@@ -33,10 +35,13 @@ const FoodPurchase = () => {
     };
 
     if (foodDetails.addedBy?.email === user?.email)
-        return toast.error("You Can't Buy Your Own Food");
+      return toast.error("You Can't Buy Your Own Food");
 
     try {
-      await axios.post(`https://eleven-lab-retaurant-backend.vercel.app/food-purchase`, purchaseData);
+      await axios.post(
+        `https://eleven-lab-retaurant-backend.vercel.app/food-purchase`,
+        purchaseData
+      );
       form.reset();
       toast.success("Purchase successful!");
       navigate("/all-foods");
@@ -89,7 +94,7 @@ const FoodPurchase = () => {
           <form className="flex-1" onSubmit={handlePurchaseFood}>
             <div className=" md:px-0 lg:px-10 space-y-3">
               <div>
-                <label className="text-gray-700" htmlFor="food_name">
+                <label className="text-gray-500" htmlFor="food_name">
                   Food Name
                 </label>
                 <input
@@ -97,11 +102,13 @@ const FoodPurchase = () => {
                   name="food_name"
                   type="text"
                   defaultValue={foodDetails.name}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
+                  className={`block w-full px-4 py-2 mt-2 text-gray-700 border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring ${
+                    theme === "dark" ? "bg-gray-800" : "bg-white"
+                  }`}
                 />
               </div>
               <div>
-                <label className="text-gray-700" htmlFor="price">
+                <label className="text-gray-500" htmlFor="price">
                   Price
                 </label>
                 <input
@@ -109,23 +116,28 @@ const FoodPurchase = () => {
                   name="price"
                   type="number"
                   defaultValue={foodDetails.price}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
+                  className={`block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring ${
+                    theme === "dark" ? "text-white" : "text-black"
+                  }`}
                 />
               </div>
               <div>
-                <label className="text-gray-700" htmlFor="quantity">
-                  Quantity
+                <label className="text-gray-500" htmlFor="quantity">
+                  Available Quantity : {foodDetails.quantity}
                 </label>
                 <input
                   id="quantity"
                   name="quantity"
                   type="number"
-                  defaultValue={1}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
+                  placeholder="Enter Quantity"
+                  required
+                  className={`block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring ${
+                    theme === "dark" ? "text-white" : "text-black"
+                  }`}
                 />
               </div>
               <div>
-                <label className="text-gray-700" htmlFor="buyer_name">
+                <label className="text-gray-500" htmlFor="buyer_name">
                   Buyer Name
                 </label>
                 <input
@@ -134,11 +146,13 @@ const FoodPurchase = () => {
                   type="text"
                   defaultValue={user?.displayName}
                   disabled={true}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
+                  className={`block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring ${
+                    theme === "dark" ? "text-white" : "text-black"
+                  }`}
                 />
               </div>
               <div>
-                <label className="text-gray-700" htmlFor="buyer_email">
+                <label className="text-gray-500" htmlFor="buyer_email">
                   Buyer Email
                 </label>
                 <input
@@ -147,12 +161,21 @@ const FoodPurchase = () => {
                   type="email"
                   defaultValue={user?.email}
                   disabled={true}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
+                  className={`block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring ${
+                    theme === "dark" ? "text-white" : "text-black"
+                  }`}
                 />
               </div>
             </div>
             <div className="flex justify-center mt-6">
-              <button className="md:w-9/12 w-full disabled:cursor-not-allowed px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+              <button
+                className={`md:w-9/12 w-full btn ${
+                  foodDetails.quantity <= 0 || foodDetails.quantity < parseInt(document.getElementById('quantity')?.value || 0)
+                    ? "btn-disabled"
+                    : "btn-neutral btn-outline"
+                }`}
+                disabled={foodDetails.quantity <= 0 || foodDetails.quantity < parseInt(document.getElementById('quantity')?.value || 0)}
+              >
                 Purchase Food
               </button>
             </div>
