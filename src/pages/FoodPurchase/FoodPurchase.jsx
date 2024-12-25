@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../providers/Context";
+import { AuthContext, ThemeContext } from "../../providers/Context";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -16,7 +16,7 @@ const FoodPurchase = () => {
 
   const { id } = useParams();
 
-  const { theme } = useContext(AuthContext);
+  const { theme } = useContext(ThemeContext);
 
   const navigate = useNavigate();
 
@@ -32,6 +32,8 @@ const FoodPurchase = () => {
       buyerName: user?.displayName,
       buyerEmail: user?.email,
       buyingDate: Date.now(),
+      foodImage: foodDetails?.imageUrl,
+      foodOwner: foodDetails?.addedBy?.name,
     };
 
     if (foodDetails.addedBy?.email === user?.email)
@@ -80,7 +82,7 @@ const FoodPurchase = () => {
         className="bg-center bg-cover object-cover text-center mb-8 h-32 rounded-lg"
       >
         <div className="h-full flex flex-col items-center justify-center bg-black bg-opacity-20">
-          <h2 className="text-4xl font-bold text-white">Update/Edit Food</h2>
+          <h2 className="text-4xl font-bold text-white">Purchase Food</h2>
           <div className="w-32 h-1 mx-auto bg-green-500 mt-3"></div>
         </div>
       </div>
@@ -102,8 +104,9 @@ const FoodPurchase = () => {
                   name="food_name"
                   type="text"
                   defaultValue={foodDetails.name}
+                  disabled={true}
                   className={`block w-full px-4 py-2 mt-2 text-gray-700 border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring ${
-                    theme === "dark" ? "bg-gray-800" : "bg-white"
+                    theme === "dark" ? "bg-gray-950" : "bg-white"
                   }`}
                 />
               </div>
@@ -116,8 +119,9 @@ const FoodPurchase = () => {
                   name="price"
                   type="number"
                   defaultValue={foodDetails.price}
-                  className={`block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring ${
-                    theme === "dark" ? "text-white" : "text-black"
+                  disabled={true}
+                  className={`block w-full px-4 py-2 mt-2 text-gray-700 border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring ${
+                    theme === "dark" ? "bg-gray-950" : "bg-white"
                   }`}
                 />
               </div>
@@ -131,8 +135,8 @@ const FoodPurchase = () => {
                   type="number"
                   placeholder="Enter Quantity"
                   required
-                  className={`block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring ${
-                    theme === "dark" ? "text-white" : "text-black"
+                  className={`block w-full px-4 py-2 mt-2 text-gray-700 border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring ${
+                    theme === "dark" ? "bg-gray-950" : "bg-white"
                   }`}
                 />
               </div>
@@ -146,8 +150,8 @@ const FoodPurchase = () => {
                   type="text"
                   defaultValue={user?.displayName}
                   disabled={true}
-                  className={`block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring ${
-                    theme === "dark" ? "text-white" : "text-black"
+                  className={`block w-full px-4 py-2 mt-2 text-gray-700 border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring ${
+                    theme === "dark" ? "bg-gray-950" : "bg-white"
                   }`}
                 />
               </div>
@@ -161,8 +165,8 @@ const FoodPurchase = () => {
                   type="email"
                   defaultValue={user?.email}
                   disabled={true}
-                  className={`block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring ${
-                    theme === "dark" ? "text-white" : "text-black"
+                  className={`block w-full px-4 py-2 mt-2 text-gray-700 border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring ${
+                    theme === "dark" ? "bg-gray-950" : "bg-white"
                   }`}
                 />
               </div>

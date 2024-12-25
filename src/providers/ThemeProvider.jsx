@@ -2,14 +2,9 @@ import { useEffect, useState } from "react";
 import { ThemeContext } from "./Context";
 
 
+// eslint-disable-next-line react/prop-types
 const ThemeProvider = ({ children }) => {
     
-
-    // const handleChangeTheme = () => {
-    //     const currentTheme = document.documentElement.getAttribute('data-theme');
-    //     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    //     document.documentElement.setAttribute('data-theme', newTheme);
-    // };
 
     const getCurrentTheme = () => {
         return document.documentElement.getAttribute('data-theme') || 'light';
