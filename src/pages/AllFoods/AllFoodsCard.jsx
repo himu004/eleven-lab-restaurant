@@ -66,14 +66,14 @@ const AllFoodsCard = ({ food }) => {
           </div>
           <div className="flex items-center justify-between">
             <span
-              className={`text-3xl font-bold ${
+              className={`text-2xl font-bold ${
                 theme === "dark" ? "text-white" : "text-gray-900"
               }`}
             >
               ${price}
             </span>
             <Link to={`/food/${_id}`}>
-              <button className="btn btn-neutral btn-outline font-medium rounded-lg text-sm px-10 text-center ">
+              <button className="btn btn-neutral btn-outline btn-sm font-medium rounded-lg text-sm px-10 text-center ">
                 Details
               </button>
             </Link>

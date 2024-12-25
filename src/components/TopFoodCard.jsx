@@ -26,7 +26,7 @@ const TopFoodCard = ({ food }) => {
         }`}
       >
         <img
-          className="p-3 h-[550px] w-full rounded-t-lg"
+          className="p-3 h-[450px] w-full rounded-md object-fit"
           src={imageUrl}
           alt="Food"
         />
@@ -55,7 +55,7 @@ const TopFoodCard = ({ food }) => {
               ${price}
             </span>
             <Link to={`/food/${_id}`}>
-              <button className="btn btn-neutral btn-outline font-medium rounded-lg text-sm px-10 text-center ">
+              <button className="btn btn-neutral btn-outline font-medium rounded-lg text-lg px-16  text-center ">
                 Details
               </button>
             </Link>

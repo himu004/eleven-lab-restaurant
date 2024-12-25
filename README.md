@@ -6,6 +6,8 @@
 This is a website for a restaurant called Eleven Lab.
 
 ## Website Futures
+- Here a customer can order their desired food, also a registered customer can see their order history and can add their food also can edite the food details. user info is highly secured by firebase authentication and JWT.
+-user or any customer can see the food details and can see the food details in a gallery.
 
 
 ## Technologies and Packages Used

@@ -14,6 +14,7 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const { theme } = useContext(AuthContext);
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -137,7 +138,7 @@ const Register = () => {
                 autoComplete="name"
                 name="name"
                 placeholder="Your Name"
-                className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
+                className={`block w-full px-4 py-2 text-gray-700 border rounded-lg focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300 ${theme === "dark" ? "dark:bg-gray-800 dark:text-white" : "text-gray-800"}`}
                 type="text"
               />
             </div>
@@ -150,10 +151,9 @@ const Register = () => {
               </label>
               <input
                 id="LoggingEmailAddress"
-                autoComplete="email"
                 name="email"
                 placeholder="Your Email"
-                className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
+                className={`block w-full px-4 py-2 text-gray-700 border rounded-lg focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300 ${theme === "dark" ? "dark:bg-gray-800 dark:text-white" : "text-gray-800"}`}
                 type="email"
               />
             </div>
@@ -166,10 +166,9 @@ const Register = () => {
               </label>
               <input
                 id="photo"
-                autoComplete="photo"
                 name="photo"
                 placeholder="Your Photo URL"
-                className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
+                className={`block w-full px-4 py-2 text-gray-700 border rounded-lg focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300 ${theme === "dark" ? "dark:bg-gray-800 dark:text-white" : "text-gray-800"}`}
                 type="text"
               />
             </div>
@@ -178,7 +177,6 @@ const Register = () => {
               <div className="flex justify-between">
                 <label
                   className="block mb-2 text-sm font-medium text-gray-600"
-                  htmlFor="loggingPassword"
                 >
                   Password
                 </label>
@@ -192,11 +190,9 @@ const Register = () => {
               </div>
 
               <input
-                id="loggingPassword"
-                autoComplete="current-password"
                 name="password"
                 placeholder="Your Password"
-                className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
+                className={`block w-full px-4 py-2 text-gray-700 border rounded-lg focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300 ${theme === "dark" ? "dark:bg-gray-800 dark:text-white" : "text-gray-800"}`}
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={handlePasswordChange}

@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar md:max-w-7xl mx-auto px-5 shadow-md bg-base-100 text-base-content sticky top-0 z-50 rounded-lg mt-5">
+    <div className="navbar container mx-auto px-5 shadow-md bg-base-100 text-base-content sticky top-0 z-50 rounded-lg mt-5">
       <div className="flex-1">
         <Link to="/" className="flex gap-2 items-center">
           <motion.img

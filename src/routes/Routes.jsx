@@ -12,64 +12,80 @@ import MyFoods from "../pages/MyFoods/MyFoods";
 import MyOrders from "../pages/MyOrders/MyOrders";
 import FoodPurchase from "../pages/FoodPurchase/FoodPurchase";
 import FoodDetails from "../pages/FoodDetails/FoodDetails";
+import UpdateFood from "../pages/UpdateFood/UpdateFood";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <HomeLayout />,
-      errorElement: <ErrorPage/>,
-      children: [
-        {
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "/all-foods",
-          element: <AllFoods />,
-        },
-        {
-          path: "/gallery",
-          element: <Gallery />,
-        },
-        {
-          path: "/login",
-          element: <Login />,
-        },
-        {
-          path: "/register",
-          element: <Register />,
-        },
-        {
-          path: "/add-food",
-          element: <PrivateRoute>
+  {
+    path: "/",
+    element: <HomeLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/all-foods",
+        element: <AllFoods />,
+      },
+      {
+        path: "/gallery",
+        element: <Gallery />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/add-food",
+        element: (
+          <PrivateRoute>
             <AddFood />
-          </PrivateRoute>,
-        },
-        {
-          path: "/my-foods",
-          element: <PrivateRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-foods",
+        element: (
+          <PrivateRoute>
             <MyFoods />
-          </PrivateRoute>,
-        },
-        {
-          path: "/my-orders",
-          element: <PrivateRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-orders",
+        element: (
+          <PrivateRoute>
             <MyOrders />
-          </PrivateRoute>,
-        },
-        {
-          path: "/food-purchase",
-          element: <PrivateRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/food-purchase",
+        element: (
+          <PrivateRoute>
             <FoodPurchase />
-          </PrivateRoute>,
-        },
-        {
-            path: "/food/:id",
-            element: <FoodDetails />,
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/food/:id",
+        element: <FoodDetails />,
+      },
+      {
+        path: "/update-food/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateFood />
+          </PrivateRoute>
+        ),
+      },
+    ],
+  },
+]);
 
-        }
-      ]
-    },
-  ]);
-
-  export default router;
+export default router;

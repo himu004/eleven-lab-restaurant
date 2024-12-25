@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/Context";
 import { useNavigate } from "react-router-dom";
-import DatePicker from "react-datepicker";
 import toast from "react-hot-toast";
 import allFoods from "../../assets/allFoods.png";
 import axios from "axios";
@@ -40,8 +39,8 @@ const handleAddFood = async (e) => {
         await axios.post(`https://eleven-lab-server.vercel.app/add-food`, foodData);
         form.reset();
         toast.success("You have Food Added Successfully");
-        // todo Navigate to my foods later
-        // navigate("/");
+        
+        navigate("/my-foods");
       } catch (err) {
         toast.error(err.message);
       }
