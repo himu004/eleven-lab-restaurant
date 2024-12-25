@@ -127,7 +127,11 @@ const FoodPurchase = () => {
               </div>
               <div>
                 <label className="text-gray-500" htmlFor="quantity">
-                  Available Quantity : {foodDetails.quantity}
+                  Available Quantity : {
+                  foodDetails.quantity <= 0 || foodDetails.quantity < parseInt(document.getElementById('quantity')?.value || 0)
+                    ? <span className="text-red-400 text-xs">(item is not available)</span>
+                    : foodDetails.quantity
+                }
                 </label>
                 <input
                   id="quantity"
