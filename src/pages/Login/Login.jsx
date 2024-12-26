@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { AuthContext, ThemeContext } from "../../providers/Context";
 import Lottie from "react-lottie";
 import loginAnimationData from "../../assets/lottie/food_login.json";
-// import axios from "axios";
+
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();

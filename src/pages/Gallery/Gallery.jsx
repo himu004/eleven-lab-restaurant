@@ -27,7 +27,6 @@ const Gallery = () => {
         );
         setGalleryImages(data);
         setIsLoading(false);
-        console.log(data);
     };
 
     const handlePageChange = (pageNumber) => {

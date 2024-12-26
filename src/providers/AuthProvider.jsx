@@ -12,6 +12,7 @@ import {
 
 import { AuthContext } from "./Context";
 import auth from "../firebase/firebase.config";
+import axios from "axios";
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
@@ -48,9 +49,26 @@ const AuthProvider = ({ children }) => {
   // onAuthStateChange
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      console.log("Logged in user", currentUser);
-      setLoading(false);
+      setUser(currentUser); 
+      console.log("Logged in user");
+
+      if(currentUser?.email){
+        const user = {email: currentUser?.email, password: currentUser?.password};
+        axios.post("https://eleven-lab-retaurant-backend.vercel.app/jwt", user, {withCredentials: true})
+        .then(res => {
+          console.log("Logged in", res.data);
+          setLoading(false);
+        })
+      } else{
+        axios.post("https://eleven-lab-retaurant-backend.vercel.app/logout", {}, {withCredentials: true})
+        .then(res => {
+          console.log("Logged Out",res.data);
+          setLoading(false);
+        })
+      }
+
+      
+      
     });
     return () => {
       return unsubscribe();
