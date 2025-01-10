@@ -5,6 +5,7 @@ import Reviews from "../../components/Reviews";
 import TopFoods from "../../components/TopFoods";
 import { ThemeContext } from "../../providers/Context";
 import Quotes from "../../components/Quotes";
+import FoodShowcase from "../../components/FoodShowcase/FoodShowcase";
 
 const Home = () => {
   const { theme } = useContext(ThemeContext);
@@ -15,6 +16,7 @@ const Home = () => {
      
       <TopFoods theme={theme} />
       <Quotes />
+      <FoodShowcase />
       <Reviews theme={theme} />
       <OurChef theme={theme} />
     </div>
