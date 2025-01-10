@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import "./style.css";
+import "./banner.css";
 
 // import required modules
 import { Autoplay, Pagination } from "swiper/modules";
@@ -19,7 +19,7 @@ const Banner = ({theme}) => {
     <div className="hero md:p-0">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="flex-1">
-          <div className="md:w-full md:max-w-2xl max-w-xs h-[500px] max-h-[400px] rounded-xl overflow-hidden">
+          <div className="md:w-full md:max-w-2xl max-w-xs rounded-lg overflow-hidden">
             <Swiper
               pagination={{
                 dynamicBullets: true,
@@ -30,57 +30,58 @@ const Banner = ({theme}) => {
               modules={[Pagination, Autoplay]}
               className="mySwiper"
             >
-              
               <SwiperSlide>
                 <img
-                  src="https://i.pinimg.com/736x/31/6c/7b/316c7b313a6272dcd635f8f8ef7451eb.jpg"
-                  alt="slide"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
+                className="b-im"
                   src="https://i.pinimg.com/736x/fb/94/ca/fb94cab6d7c260b8c5952385d5dfee94.jpg"
                   alt="slide"
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
+                className="b-im"
                   src="https://i.pinimg.com/736x/34/f4/8f/34f48f5c56c938642b80b0555e5adf82.jpg"
                   alt="slide"
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
+                className="b-im"
                   src="https://i.pinimg.com/736x/eb/cb/c6/ebcbc6aaa9deca9d6efc1efc93b66945.jpg"
                   alt="slide"
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
+                className="b-im"
                   src="https://i.pinimg.com/736x/76/19/ef/7619ef4dfcf7382aab410d57e796ffbf.jpg"
                   alt="slide"
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
+                className="b-im"
                   src="https://i.pinimg.com/736x/b3/60/ae/b360aefcded25044c9f367c78aea4b07.jpg"
                   alt="slide"
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
+                className="b-im"
                   src="https://i.pinimg.com/736x/78/c4/33/78c433eb22a7fb53e31df6150ca867b2.jpg"
                   alt="slide"
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
+                className="b-im"
                   src="https://i.pinimg.com/736x/c8/11/e1/c811e16e296b7830943b90943a3d5c51.jpg"
                   alt="slide"
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
+                className="b-im"
                   src="https://i.pinimg.com/736x/d4/5c/65/d45c6504ba23520418b2cb1b2fee71a2.jpg"
                   alt="slide"
                 />

@@ -3,12 +3,12 @@ import Marquee from 'react-fast-marquee';
 
 const Quotes = () => {
     return (
-        <div className="bg-gray-200 mt-2 py-5">
+        <div className="bg-gray-100 mt-2 py-5">
             <Marquee
                 gradient={false}
                 speed={50}
                 pauseOnHover={true}
-                className="text-green-500 text-xl font-semibold"
+                className="text-xl "
             >
                 <p className="mx-8">&quot;One cannot think well, love well, sleep well, if one has not dined well.&quot; - Virginia Woolf</p>
                 <p className="mx-8">&quot;Food is not just eating energy. It&apos;s an experience.&quot; - Guy Fieri</p>
