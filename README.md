@@ -21,6 +21,7 @@ This is a website for a restaurant called Eleven Lab.
 - Axios
 - React Icons
 - React Leaflet
+- React Marquee
 - TanStack Query
 - SwiperJS
 - Lottie-React
