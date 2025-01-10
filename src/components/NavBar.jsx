@@ -77,6 +77,9 @@ const Navbar = () => {
           <li>
             <NavLink to="/gallery">Gallery</NavLink>
           </li>
+          <li>
+            <NavLink to="/menu">Our Menu</NavLink>
+          </li>
           {!user && (
             <>
             <li>
