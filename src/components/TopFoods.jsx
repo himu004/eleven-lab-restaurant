@@ -1,25 +1,31 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import TopFoodCard from "./TopFoodCard";
 import axios from "axios";
 import LoadingSpinner from "./LoadingSpinner";
+import PropTypes from 'prop-types';
 
 const TopFoods = ({ theme }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [topFoods, setTopFoods] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchJobData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchJobData = async () => {
-    const { data } = await axios.get(
-      `https://eleven-lab-retaurant-backend.vercel.app/top-foods`
-    );
-    setTopFoods(data);
-    setIsLoading(false);
-    // console.log(data);
+    try {
+      const { data } = await axios.get(
+        `https://eleven-lab-retaurant-backend.vercel.app/top-foods`
+      );
+      setTopFoods(data);
+      setIsLoading(false);
+    } catch (err) {
+      console.error("Error fetching data:", err);
+      setError(err.message);
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -42,13 +48,17 @@ const TopFoods = ({ theme }) => {
         </p>
       </div>
 
-      {isLoading ? <LoadingSpinner /> : <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-        {
-          topFoods.map((food) => (
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : error ? (
+        <div className="text-red-500 text-center mt-5">{error}</div>
+      ) : (
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+          {topFoods.map((food) => (
             <TopFoodCard key={food._id} food={food} />
-          ))
-        }
-      </div>}
+          ))}
+        </div>
+      )}
 
       <Link to="/all-foods" className="mt-10 flex justify-center py-5">
         <button
@@ -63,6 +73,10 @@ const TopFoods = ({ theme }) => {
       </Link>
     </div>
   );
+};
+
+TopFoods.propTypes = {
+  theme: PropTypes.string.isRequired,
 };
 
 export default TopFoods;

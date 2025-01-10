@@ -2,7 +2,7 @@ import React from "react";
 
 const OurChef = ({theme}) => {
   return (
-    <section className={`${theme === "dark" ? "bg-gray-900" : "bg-white "}`}>
+    <section className={`${theme === "dark" ? "" : "bg-white "}`}>
       <div className="container px-6 py-10 mx-auto">
         <h1 className={`text-2xl font-semibold text-center capitalize lg:text-3xl ${theme === "dark" ? "text-white" : "text-gray-700"}`}>
           Our Chefs

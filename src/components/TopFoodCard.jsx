@@ -6,13 +6,10 @@ const TopFoodCard = ({ food }) => {
   const {
     _id,
     name,
-    category,
     imageUrl,
     origin,
     price,
     purchase_count,
-    quantity,
-    description,
   } = food || {};
 
   const { theme } = useContext(ThemeContext);
@@ -26,7 +23,7 @@ const TopFoodCard = ({ food }) => {
         }`}
       >
         <img
-          className="p-3 h-[450px] w-full rounded-md object-fit"
+          className="p-3 h-[300px] w-full rounded-md object-fit"
           src={imageUrl}
           alt="Food"
         />
@@ -40,7 +37,7 @@ const TopFoodCard = ({ food }) => {
             {name}
           </h5>
 
-          <div className="flex items-center justify-between mt-2.5 mb-5">
+          <div className="flex flex-col gap-3 mt-2.5 mb-5">
             <p className="badge badge-error">Sold: {purchase_count}</p>
             <p className="badge badge-success badge-outline">
               Country Of Origin: {origin}

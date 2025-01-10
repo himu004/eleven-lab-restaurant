@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
       console.log("Logged in user");
 
       if(currentUser?.email){
-        const user = {email: currentUser?.email, password: currentUser?.password};
+        const user = {email: currentUser?.email};
         axios.post("https://eleven-lab-retaurant-backend.vercel.app/jwt", user, {withCredentials: true})
         .then(res => {
           console.log("Logged in", res.data);
