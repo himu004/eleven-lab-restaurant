@@ -80,6 +80,9 @@ const Navbar = () => {
           <li>
             <NavLink to="/menu">Our Menu</NavLink>
           </li>
+          <li>
+            <NavLink to="/find-us">Find Us</NavLink>
+          </li>
           {!user && (
             <>
             <li>

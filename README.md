@@ -20,6 +20,7 @@ This is a website for a restaurant called Eleven Lab.
 - Framer Motion
 - Axios
 - React Icons
+- React Leaflet
 - TanStack Query
 - SwiperJS
 - Lottie-React

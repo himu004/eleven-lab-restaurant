@@ -14,6 +14,7 @@ import FoodPurchase from "../pages/FoodPurchase/FoodPurchase";
 import FoodDetails from "../pages/FoodDetails/FoodDetails";
 import UpdateFood from "../pages/UpdateFood/UpdateFood";
 import Menu from "../pages/Menu/Menu";
+import FindUs from "../pages/FindUs/FindUs";
 
 const router = createBrowserRouter([
   {
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
       {
         path: "menu",
         element: <Menu />,
+      },
+      {
+        path: "find-us",
+        element: <FindUs />,
       },
     ],
   },
